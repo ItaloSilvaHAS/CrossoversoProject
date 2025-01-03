@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Personagem - Crossoverso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="racas.html">Raças</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="crie.html">Crie SEU PP</a>
+        <a href="gamepass.html">Gamepass</a>
+    </div>
+
+    
+
+    <div class="create-character">
+        <h2>Criação de Personagem</h2>
+
+        <form id="characterForm">
+            <label for="name">Nome do Personagem:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="race">Escolha sua Raça:</label>
+            <select id="race" name="race">
+                <option value="humano">Humano</option>
+                <option value="gigante">Gigante</option>
+                <option value="dragao">Dragão</option>
+                <option value="demônio">Demônio</option>
+                <option value="elfoNegro">Elfo Negro</option>
+                <option value="fada">Fada</option>
+                <option value="bruxos">Bruxos</option>
+            </select>
+
+            <label for="class">Escolha sua Classe:</label>
+            <select id="class" name="class">
+                <option value="guerreiro">Guerreiro</option>
+                <option value="mago">Mago</option>
+                <option value="atirador">Atirador</option>
+            </select>
+
+            <div id="perk" class="perk">
+                <h3>Perk:</h3>
+                <p id="perkText">Escolha uma raça para ver seu perk.</p>
+            </div>
+
+            <div id="attributes">
+                <h3>Atributos</h3>
+                <p>Você tem 15 pontos para distribuir entre os seguintes atributos:</p>
+                
+                <label for="strength">Força: Sua força física, influencia seu dano em combate corpo a corpo.</label>
+                <input type="number" id="strength" name="strength" value="0" min="0" max="15" required>
+
+                <label for="speed">Velocidade: Sua capacidade de agir rapidamente, impacta sua iniciativa e esquiva.</label>
+                <input type="number" id="speed" name="speed" value="0" min="0" max="15" required>
+
+                <label for="intelligence">Inteligência: Sua habilidade de tomar decisões rápidas e estratégicas em combate.</label>
+                <input type="number" id="intelligence" name="intelligence" value="0" min="0" max="15" required>
+
+                <label for="ego">Ego: Sua capacidade de despertar, afeta suas habilidades especiais e poderes.</label>
+                <input type="number" id="ego" name="ego" value="0" min="0" max="15" required>
+
+                <p id="remainingPoints">Pontos restantes: <span id="pointsLeft">15</span></p>
+            </div>
+
+            <button type="button" onclick="generateCharacter()">Criar Personagem</button>
+        </form>
+
+        <div id="characterStats" style="display: none;">
+            <h3>Ficha do Personagem</h3>
+            <p id="characterName"></p>
+            <p id="characterRace"></p>
+            <p id="characterClass"></p>
+
+            <div id="attributesDisplay">
+                <h4>Atributos</h4>
+                <p>Força: <span id="displayStrength"></span></p>
+                <p>Velocidade: <span id="displaySpeed"></span></p>
+                <p>Inteligência: <span id="displayIntelligence"></span></p>
+                <p>Ego: <span id="displayEgo"></span></p>
+            </div>
+
+            <div id="characterGraph" style="max-width: 600px; margin-top: 20px;">
+                <canvas id="characterChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

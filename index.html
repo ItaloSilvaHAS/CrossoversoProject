@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossoverso - RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="racas.html">Raças</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="crie.html">Crie SEU PP</a>
+        <a href="gamepass.html">Gamepass</a>
+    </div>
+
+    <div class="home">
+        <div class="welcome-message">
+            <h1>Bem-vindo ao <span class="highlight">Crossoverso</span></h1>
+            <p>O lugar onde você pode criar seu próprio personagem e viver suas aventuras. Prepare-se para explorar raças místicas, classes poderosas e desenvolver habilidades únicas em um mundo cheio de possibilidades!</p>
+        </div>
+
+        <div class="features">
+            <h2>Principais Atrativos:</h2>
+            <div class="feature-box">
+                <h3>Criação de Personagem</h3>
+                <p>Crie seu personagem com atributos, raças, classes e perks exclusivos.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Mapa Interativo</h3>
+                <p>Explore o mundo de Crossoverso com um mapa interativo.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Raças e Classes</h3>
+                <p>Escolha entre várias raças e classes, cada uma com suas habilidades e poderes.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Evolução e Progressão</h3>
+                <p>No Crossoverso, os personagens evoluem através de escolhas de raça, classe e perks. Cada conquista aumenta seus atributos e habilidades únicas. A personalização é a chave para um progresso único.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Gamepass</h3>
+                <p>Nada de desbalanceamento, apenas itens e habilidades legais!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Crossoverso RPG. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão e janela do chatbot -->
+    <button class="chatbot-button" onclick="toggleChatbot()">💬</button>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">Assistente do Crossoverso</div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div id="chatbotOptions" class="chatbot-options">
+            <div id="chatbotOptions" class="chatbot-options">
+                <div class="chatbot-option" onclick="showRaças()">Quais são as raças?</div>
+                <div class="chatbot-option" onclick="showAjuda()">Ajuda</div>
+                <div class="chatbot-option" onclick="showMaisFortes()">Quem são os mais fortes aqui?</div> 
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        const database = {
+            "raças": {
+                "Humano": "Carne e OSSO!",
+
+                "Gigante": "Enorme, com uma força maior ainda!",
+
+                "Dragão": "Forças incontrolaveis da natureza.",
+
+                "Demônio": "Filhos do inferno, trazem a destruição!",
+
+                "Elfo Negro": "A ANOMALIA e a ovelha negra da familia.",
+
+                "Fada": "Pequenas porem, juntas sao fortes!"
+                ,
+                
+                "Bruxo": "Os Humanos evoluiram..."
+            },
+            "ajuda": "Pergunte-me sobre as raças, perks ou como criar seu personagem. Eu posso te ajudar!",
+            "mais_fortes": {
+                "Blue": "Sucessor do vazio",
+                "Zion": "Uma geração de destruição",
+                "Tsuki": "O topo dos humanos",
+                "Harumi": "A dona de casa mais mortal de todas",
+                "Ytalo": "Porque?"
+            }
+        };
+    
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            chatbotWindow.style.display = chatbotWindow.style.display === 'none' || chatbotWindow.style.display === '' ? 'flex' : 'none';
+        }
+    
+        function showRaças() {
+            const messages = document.getElementById('chatbotMessages');
+            messages.innerHTML = ""; // Limpar mensagens anteriores
+            for (const raça in database.raças) {
+                const message = document.createElement('div');
+                message.textContent = `Bot: ${raça}: ${database.raças[raça]}`;
+                messages.appendChild(message);
+            }
+            showOptions(); // Mostrar o menu de opções novamente
+        }
+    
+        function showPerks() {
+            const messages = document.getElementById('chatbotMessages');
+            messages.innerHTML = ""; // Limpar mensagens anteriores
+            for (const raça in database.raças) {
+                const message = document.createElement('div');
+                message.textContent = `Bot: ${raça}: ${database.raças[raça]}`;
+                messages.appendChild(message);
+            }
+            showOptions(); // Mostrar o menu de opções novamente
+        }
+    
+        function showAjuda() {
+            const messages = document.getElementById('chatbotMessages');
+            messages.innerHTML = ""; // Limpar mensagens anteriores
+            const helpMessage = document.createElement('div');
+            helpMessage.textContent = `Bot: ${database.ajuda}`;
+            messages.appendChild(helpMessage);
+            showOptions(); // Mostrar o menu de opções novamente
+        }
+    
+        function showMaisFortes() {
+            const messages = document.getElementById('chatbotMessages');
+            messages.innerHTML = ""; // Limpar mensagens anteriores
+            const maisFortesMessage = document.createElement('div');
+            maisFortesMessage.textContent = "Bot: Quem são os mais fortes aqui? Vamos dar uma olhada:\n" +
+            "Blue: Sucessor do vazio\n" +
+            "Zion: Uma geração de destruição\n" +
+            "Tsuki: O topo dos humanos\n" +
+            "Harumi: A dona de casa mais mortal de todas\n" +
+            "Ytalo: Porque?\n\n" +
+            "Ah, mas por que o Ytalo está na lista? Bem... Talvez seja essa seja a pergunta mais forte de todas! 😂";
+            messages.appendChild(maisFortesMessage);
+            showOptions(); // Mostrar o menu de opções novamente
+        }
+    
+        function showOptions() {
+            const options = document.getElementById('chatbotOptions');
+            options.style.display = 'block';
+        }
+    
+        // Inicialmente mostra as opções
+        showOptions();
+    </script>
+    
+</body>
+</html>
